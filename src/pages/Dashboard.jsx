@@ -47,6 +47,13 @@ const Dashboard = () => {
     generatePDF(language);
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   // Get translated stats
   const getTranslatedStats = () => {
     return [
@@ -64,11 +71,11 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <h1 className="text-xl font-bold text-cyan-400">{cvData.personal.name.split(' ')[0]}</h1>
           <nav className="hidden md:flex gap-8 items-center">
-            <a href="#about" className="text-slate-300 hover:text-cyan-400 transition-colors">{t.nav.about}</a>
-            <a href="#experience" className="text-slate-300 hover:text-cyan-400 transition-colors">{t.nav.experience}</a>
-            <a href="#skills" className="text-slate-300 hover:text-cyan-400 transition-colors">{t.nav.skills}</a>
-            <a href="#education" className="text-slate-300 hover:text-cyan-400 transition-colors">{t.nav.education}</a>
-            <a href="#contact" className="text-slate-300 hover:text-cyan-400 transition-colors">{t.nav.contact}</a>
+            <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.about}</button>
+            <button onClick={() => scrollToSection('experience')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.experience}</button>
+            <button onClick={() => scrollToSection('skills')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.skills}</button>
+            <button onClick={() => scrollToSection('education')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.education}</button>
+            <button onClick={() => scrollToSection('contact')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.contact}</button>
             
             {/* Language Toggle Button */}
             <Button 
