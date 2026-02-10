@@ -77,7 +77,7 @@ const Dashboard = () => {
       {/* Header */}
       <header className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-cyan-400">{cvData.personal.name.split(' ')[0]}</h1>
+          <h1 className="text-xl font-bold text-cyan-400">José Manuel Ortega</h1>
           <nav className="hidden md:flex gap-8 items-center">
             <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.about}</button>
             <button onClick={() => scrollToSection('experience')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.experience}</button>
