@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { cvData } from '../data/mock';
 import { useLanguage } from '../context/LanguageContext';
 import { getText, getTextArray } from '../utils/languageHelpers';
-import { generatePDF } from '../utils/pdfGenerator';
 import { 
   Briefcase, Award, Code, Folder, Mail, Phone, MapPin, 
   Download, Calendar, TrendingUp, Users, Target,
@@ -44,7 +43,16 @@ const Dashboard = () => {
   };
 
   const handleDownloadCV = () => {
-    generatePDF(language);
+    const fileName = language === 'en' 
+      ? 'CV_Jose_Manuel_Ortega_English.pdf'
+      : 'CV_Jose_Manuel_Ortega_Spanish.pdf';
+    
+    const link = document.createElement('a');
+    link.href = `${process.env.PUBLIC_URL}/${fileName}`;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const scrollToSection = (sectionId) => {
