@@ -163,7 +163,7 @@ const Dashboard = () => {
       <section id="about" className="py-20 px-6 bg-slate-900/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 text-slate-100">{t.about.title}</h2>
-          <Card className="bg-slate-900/50 border-slate-800">
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
             <CardContent className="p-8">
               <p className="text-lg text-slate-300 leading-relaxed">
                 {getText(cvData.personal.summary, language)}
@@ -183,7 +183,7 @@ const Dashboard = () => {
           
           <div className="grid lg:grid-cols-2 gap-8 mb-8">
             {/* Career Progression Timeline */}
-            <Card className="bg-slate-900/50 border-slate-800">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
               <CardHeader>
                 <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
                   <LineChart className="w-6 h-6 text-cyan-400" />
@@ -199,7 +199,7 @@ const Dashboard = () => {
             </Card>
 
             {/* Sector Distribution */}
-            <Card className="bg-slate-900/50 border-slate-800">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
               <CardHeader>
                 <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
                   <PieChart className="w-6 h-6 text-cyan-400" />
@@ -232,7 +232,7 @@ const Dashboard = () => {
           </Card>
 
           {/* Impact Metrics */}
-          <Card className="bg-slate-900/50 border-slate-800">
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
             <CardHeader>
               <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
                 <Target className="w-6 h-6 text-cyan-400" />
@@ -326,7 +326,7 @@ const Dashboard = () => {
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Technical Skills */}
-            <Card className="bg-slate-900/50 border-slate-800">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
               <CardHeader>
                 <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
                   <Code className="w-6 h-6 text-cyan-400" />
@@ -347,7 +347,7 @@ const Dashboard = () => {
             </Card>
 
             {/* Business Skills */}
-            <Card className="bg-slate-900/50 border-slate-800">
+            <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
               <CardHeader>
                 <CardTitle className="text-2xl text-slate-100 flex items-center gap-2">
                   <Users className="w-6 h-6 text-cyan-400" />
@@ -370,7 +370,7 @@ const Dashboard = () => {
           </div>
 
           {/* Tools */}
-          <Card className="bg-slate-900/50 border-slate-800">
+          <Card className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
             <CardHeader>
               <CardTitle className="text-2xl text-slate-100">{t.skills.tools}</CardTitle>
             </CardHeader>
@@ -443,7 +443,7 @@ const Dashboard = () => {
           <h2 className="text-3xl font-bold mb-8 text-slate-100">{t.languages.title}</h2>
           <div className="flex gap-6">
             {cvData.languages.map((lang, index) => (
-              <Card key={index} className="bg-slate-900/50 border-slate-800">
+              <Card key={index} className="bg-slate-900/50 border-slate-800 shadow-[0_8px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_24px_rgba(6,182,212,0.2)] transition-all">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-slate-100 mb-1">{getText(lang.name, language)}</h3>
                   <p className="text-cyan-400">
