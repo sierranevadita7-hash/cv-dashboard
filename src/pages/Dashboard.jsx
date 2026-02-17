@@ -5,7 +5,7 @@ import { getText, getTextArray } from '../utils/languageHelpers';
 import { 
   Briefcase, Award, Code, Folder, Mail, Phone, MapPin, 
   Download, Calendar, TrendingUp, Users, Target,
-  ChevronDown, ChevronUp, BarChart3, PieChart, LineChart, Languages
+  ChevronDown, ChevronUp, BarChart3, PieChart, LineChart, Languages, Share2
 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
@@ -22,10 +22,32 @@ const Dashboard = () => {
   const { language, toggleLanguage, t } = useLanguage();
   const [expandedExp, setExpandedExp] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [showCopied, setShowCopied] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const handleShare = async () => {
+    const shareData = {
+      title: 'CV - José Manuel Ortega',
+      text: language === 'en' ? 'Check out my CV!' : '¡Mira mi CV!',
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // User cancelled or error
+      }
+    } else {
+      // Fallback: copy to clipboard
+      await navigator.clipboard.writeText(window.location.href);
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000);
+    }
+  };
 
   const toggleExperience = (id) => {
     setExpandedExp(expandedExp === id ? null : id);
@@ -85,6 +107,24 @@ const Dashboard = () => {
             <button onClick={() => scrollToSection('education')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.education}</button>
             <button onClick={() => scrollToSection('contact')} className="text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer">{t.nav.contact}</button>
             
+            {/* Share Button */}
+            <div className="relative">
+              <Button 
+                onClick={handleShare}
+                variant="outline"
+                size="sm"
+                className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-cyan-400"
+              >
+                <Share2 className="w-4 h-4 mr-2" />
+                {language === 'en' ? 'Share' : 'Compartir'}
+              </Button>
+              {showCopied && (
+                <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                  {language === 'en' ? 'Link copied!' : '¡Link copiado!'}
+                </div>
+              )}
+            </div>
+
             {/* Language Toggle Button */}
             <Button 
               onClick={toggleLanguage}
